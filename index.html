@@ -49,7 +49,8 @@
 			return "Paper";
 		else return "Scissors";
 	}
-	function playRound(playerSelection, computerSelection) {
+	function playRound(playerSelection) {
+		const computerSelection = computerPlay();
 		playerSelection = playerSelection.toLowerCase();
 		computerSelection = computerSelection.toLowerCase();
 		let winner = 0;
@@ -88,19 +89,29 @@
 			return "You Lose!"
 		else return "Tie!"
 	}
-
-function game() {
-
-	for (let i = 0; i < 5; i++){
-		const playerSelection = computerPlay();
-		const computerSelection = computerPlay();
-		console.log("Player selection " + playerSelection);
-		console.log("Computer selection " + computerSelection);
-		console.log(playRound(playerSelection, computerSelection));
+function play() {
+	var lrock = document.getElementById("rock");
+	var lpaper = document.getElementById("paper");
+	var lscissors = document.getElementById("scissors");
+	if(typeof window.addEventListener != "undefined"){
+		lrock.addEventListener("click", console.log(playRound("rock")));
+	}else {
+		lrock.attachEvent("onclick", console.log(playRound("rock")));
 	}
-
+	if(lpaper){
+		lpaper.addEventListener("click", console.log(playRound("paper")));
+	} else {
+		lpaper.attachEvent("onclick",  console.log(playRound("paper")));
+	}
+	if(lscissors){
+		lscissors.addEventListener("click", console.log(playRound("scissors")));
+	} else {
+		lscissors.attachEvent("onclick", console.log(playRound("scissors")));
+	}
 }
-game();
+play();
+
+
 </script>
 </head>
 <body>
@@ -109,9 +120,9 @@ game();
 	<div class = "dropdown">
 		<button class="dropbtn">Dropdown</button>
 		<div class="dropdown-content">
-			<a href="#">Rock</a>
-			<a href="#">Paper</a>
-			<a href="#">Scissors</a>
+			<a id="rock" href="#">Rock</a>
+			<a href="#" id="paper">Paper</a>
+			<a href="#" id="scissors">Scissors</a>
 		</div>
 	</div>
 </body>
