@@ -1,3 +1,4 @@
+var nGames = 0;
 var computerScore = 0;
 var playerScore = 0;
 var ties = 0;
@@ -43,11 +44,39 @@ function playRound(playerSelection, computerSelection) {
 			break;
 		}
 	}
-	if (winner == 1)
-		return "You Win!"
-	else if(winner == 2)
-		return "You Lose!"
-	else return "Tie!"
+	
+	if(nGames == 5){
+		document.getElementById("demo").innerHTML = "";
+
+		if(playerScore > computerScore){
+			document.getElementById("demo").innerHTML = "Congratulations! You Win.";
+		} else if(playerScore < computerScore){
+			document.getElementById("demo").innerHTML = "Sorry! You Lose.";
+		} else {
+			document.getElementById("demo").innerHTML = "Alas! It's a tie";
+		}
+
+		document.getElementById("demo").innerHTML = "Starting new game.";
+		computerScore =0;
+		playerScore = 0;
+		ties = 0;
+		nGames = 0;
+	}
+
+	nGames++;
+	if (winner == 1){
+		playerScore++;
+		return "You Win! <br /> Your score:"+ playerScore +"<br /> Computer Score:"+computerScore +"<br /> Ties:"+ties;
+	}
+	else if(winner == 2){
+		computerScore++;
+		return "You Lose! <br /> Your score:"+ playerScore +"<br /> Computer Score:"+computerScore +"<br /> Ties:"+ties;
+	}
+	else {
+		ties++;
+		return "Tie!\n <br /> Your score:"+ playerScore +"<br /> Computer Score:"+computerScore +"<br />Ties:"+ties;
+	}
+
 }
 
 function game() {
@@ -60,14 +89,31 @@ function game() {
 	}
 }
 
-function myFunction() {
-  var x = document.getElementById("1").value;
-  document.getElementById("demo").innerHTML = x;
+function selectRock(pSelect) {
+	var pSelect = document.getElementById("rock").value;
+	var cSelect = computerPlay();
+	var result = playRound( pSelect, cSelect);
+	document.getElementById("demo").innerHTML = result;
+}
+function selectPaper(pSelect) {
+	var pSelect = document.getElementById("paper").value;
+	var cSelect = computerPlay();
+	var result = playRound( pSelect, cSelect);
+	document.getElementById("demo").innerHTML = result;
+}
+function selectScissors(pSelect) {
+	var pSelect = document.getElementById("scissors").value;
+	var cSelect = computerPlay();
+	var result = playRound( pSelect, cSelect);
+	document.getElementById("demo").innerHTML = result;
 }
 
+
+
 document.addEventListener("DOMContentLoaded", function(event) {
-    console.log("DOM fully loaded and parsed");
-    console.log(document.getElementById("rock").innerHTML);
-  });
+	console.log(document.getElementById("rock").innerHTML);
+});
 
-
+document.addEventListener("DOMContentLoaded", function(event) {
+	console.log(document.getElementById("paper").innerHTML);
+});
