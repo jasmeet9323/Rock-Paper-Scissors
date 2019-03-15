@@ -44,39 +44,42 @@ function playRound(playerSelection, computerSelection) {
 			break;
 		}
 	}
-	
+	nGames++;
+	console.log(nGames);
+
+	var ans;
+	if (winner == 1){
+		playerScore++;
+		ans = "You Win! <br /> Your score:"+ playerScore +"<br /> Computer Score:"+computerScore +"<br /> Ties:"+ties;
+	}
+	else if(winner == 2){
+		computerScore++;
+		ans = "You Lose! <br /> Your score:"+ playerScore +"<br /> Computer Score:"+computerScore +"<br /> Ties:"+ties;
+	}
+	else {
+		ties++;
+		ans = "Tie!\n <br /> Your score:"+ playerScore +"<br /> Computer Score:"+computerScore +"<br />Ties:"+ties;
+	}
+
+
 	if(nGames == 5){
-		document.getElementById("demo").innerHTML = "";
+		console.log(document.getElementById("demo").innerHTML = "");
 
 		if(playerScore > computerScore){
-			document.getElementById("demo").innerHTML = "Congratulations! You Win.";
+			console.log(document.getElementById("demo").innerHTML = "Congratulations! You Win.");
 		} else if(playerScore < computerScore){
-			document.getElementById("demo").innerHTML = "Sorry! You Lose.";
+			console.log(document.getElementById("demo").innerHTML = "Sorry! You Lose.");
 		} else {
-			document.getElementById("demo").innerHTML = "Alas! It's a tie";
+			console.log(document.getElementById("demo").innerHTML = "Alas! It's a tie");
 		}
-
-		document.getElementById("demo").innerHTML = "Starting new game.";
+		setTimeout(function(){document.getElementById("demo").innerHTML = "Starting new game.";},2000);
+		
 		computerScore =0;
 		playerScore = 0;
 		ties = 0;
 		nGames = 0;
 	}
-
-	nGames++;
-	if (winner == 1){
-		playerScore++;
-		return "You Win! <br /> Your score:"+ playerScore +"<br /> Computer Score:"+computerScore +"<br /> Ties:"+ties;
-	}
-	else if(winner == 2){
-		computerScore++;
-		return "You Lose! <br /> Your score:"+ playerScore +"<br /> Computer Score:"+computerScore +"<br /> Ties:"+ties;
-	}
-	else {
-		ties++;
-		return "Tie!\n <br /> Your score:"+ playerScore +"<br /> Computer Score:"+computerScore +"<br />Ties:"+ties;
-	}
-
+	return ans;
 }
 
 function selectRock(pSelect) {
