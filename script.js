@@ -79,16 +79,6 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-function game() {
-	for (let i = 0; i < 5; i++){
-		const playerSelection = computerPlay();
-		const computerSelection = computerPlay();
-		console.log("Player selection " + playerSelection);
-		console.log("Computer selection " + computerSelection);
-		console.log(playRound(playerSelection, computerSelection));
-	}
-}
-
 function selectRock(pSelect) {
 	var pSelect = document.getElementById("rock").value;
 	var cSelect = computerPlay();
