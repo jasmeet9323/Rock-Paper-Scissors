@@ -72,7 +72,7 @@ function playRound(playerSelection, computerSelection) {
 		} else {
 			console.log(document.getElementById("demo").innerHTML = "Alas! It's a tie");
 		}
-		setTimeout(function(){document.getElementById("demo").innerHTML = "Starting new game.";},2000);
+		setTimeout(function(){document.getElementById("demo").innerHTML = "Press Ctrl+Shift+I to see final result. <br /> <br /> Starting new game.";},1000);
 		
 		computerScore =0;
 		playerScore = 0;
