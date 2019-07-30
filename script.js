@@ -111,3 +111,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 document.addEventListener("DOMContentLoaded", function(event) {
     console.log(document.getElementById("paper").innerHTML);
 });
+
+
+let rockButton = document.getElementById("rock");
+rockButton.addEventListener('click', (e) => {
+    console.log(e);
+})
