@@ -18,7 +18,7 @@ function playRound(playerSelection, computerSelection) {
     let winner = 0;
     switch(playerSelection){
     case "rock": {
-	if(computerSelection=="scissors")
+	if(computeroSelection=="scissors")
 	    winner = 1;
 	else if(computerSelection=="paper")
 	    winner = 2;
@@ -46,20 +46,30 @@ function playRound(playerSelection, computerSelection) {
     }
     }
     nGames++;
-    console.log(nGames);
+    let resultBox = document.getElementsByClassName("resultBox");
+    resultBox.textContent = nGames;
 
     var ans;
     if (winner == 1){
 	playerScore++;
-	ans = "You Win! <br /> Your score:"+ playerScore +"<br /> Computer Score:"+computerScore +"<br /> Ties:"+ties;
+	ans = "You Win!";
+<br /> Your score:"+ playerScore +"
+<br /> Computer Score:"+computerScore +"
+<br /> Ties:"+ties;
     }
     else if(winner == 2){
 	computerScore++;
-	ans = "You Lose! <br /> Your score:"+ playerScore +"<br /> Computer Score:"+computerScore +"<br /> Ties:"+ties;
+	ans = "You Lose!
+<br /> Your score:"+ playerScore +"
+<br /> Computer Score:"+computerScore +"
+<br /> Ties:"+ties;
     }
     else {
 	ties++;
-	ans = "Tie!\n <br /> Your score:"+ playerScore +"<br /> Computer Score:"+computerScore +"<br />Ties:"+ties;
+	ans = "Tie!\n
+<br /> Your score:"+ playerScore +"
+<br /> Computer Score:"+computerScore +"
+<br />Ties:"+ties;
     }
 
 
@@ -68,7 +78,8 @@ function playRound(playerSelection, computerSelection) {
 
 	if(playerScore > computerScore){
 	    console.log(document.getElementById("demo").innerHTML = "Congratulations! You Win.");
-	} else if(playerScore < computerScore){
+	} else if(playerScore
+		  < computerScore){
 	    console.log(document.getElementById("demo").innerHTML = "Sorry! You Lose.");
 	} else {
 	    console.log(document.getElementById("demo").innerHTML = "Alas! It's a tie");
@@ -104,16 +115,18 @@ function selectScissors(pSelect) {
     document.getElementById("demo").innerHTML = result;
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
-    console.log(document.getElementById("rock").innerHTML);
-});
+window.addEventListener('click', playerSelect);
 
-document.addEventListener("DOMContentLoaded", function(event) {
-    console.log(document.getElementById("paper").innerHTML);
-});
-
-
-let rockButton = document.getElementById("rock");
-rockButton.addEventListener('click', (e) => {
+function playerSelect () {
+    let rockButton = document.querySelector(`button[data-key="rock"]`);
+    rockButton.addEventListener('click', (e) => {
+	console.log(e);
+    });
+    
+}
+let paperButton = document.getElementById("paper");
+paperButton.addEventListener('click', (e) => {
     console.log(e);
-})
+});
+
+//let resultBox = document.createElement('div');
