@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
 }
 
@@ -41,3 +42,23 @@ button {
     top: 25%;
     transform: translate(-50%, -50%);
 }
+=======
+.resultBox {
+    width:320px;
+    padding: 10px;
+    border: 5px solid gray;
+    margin:0;   
+}
+
+.button {
+    background-color: #e7e7e7;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+}
+>>>>>>> 52946ddc0dfa88630ae3118672352484f745e019
