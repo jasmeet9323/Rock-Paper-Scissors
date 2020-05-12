@@ -1,0 +1,43 @@
+body {
+}
+
+#container {
+  position: absolute;
+  display: block;
+  margin: 0 auto;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}
+
+button {
+  padding: 0.5em;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(218, 150, 164);
+  font-size: 3em;
+  font-style: bold;
+  margin: 20px;
+}
+
+#demo {
+    padding: 10px;
+    font-size: 1em;
+}
+
+#messages {
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+}
+
+#ranking, #result {
+    font-size: 2em;
+}
+
+#final {
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -50%);
+}

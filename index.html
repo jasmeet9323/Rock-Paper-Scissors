@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>
 		My Rock Paper Scissors App
 	</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="script.js"></script>
 </head>
+
 <body>
-	<button id="rock" value="rock" onclick="selectRock()">Rock</button>
-	<button id="paper"  value="paper" onclick="selectPaper()">Paper</button>
-	<button id="scissors" value="scissors" onclick="selectScissors()">Scissors</button>
-	<p id="demo"></p>
+	<div id="container">
+		<button id="rock" value="rock">Rock</button>
+		<button id="paper" value="paper">Paper</button>
+		<button id="scissors" value="scissors">Scissors</button>
+	</div>
+	<div id="messages">
+		<p id="ranking"></p>
+	</div>
+	<div id="final">
+		<p id="result"></p>
+	</div>
 </body>
+
 </html>
